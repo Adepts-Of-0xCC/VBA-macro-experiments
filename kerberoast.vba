@@ -1,6 +1,6 @@
 ' Kerberoast implemented in VBA Macro
 ' PoC by Juan Manuel Fernandez (@TheXC3LL)
-' Retrieve SPNs via LDAP querys, then ask a TGS Ticket with RC4 Etype for each one. The ticket is exported in KiRBi format (like mimikatz does)
+' Retrieve SPNs via LDAP queries, then ask a TGS Ticket with RC4 Etype for each one. The ticket is exported in KiRBi format (like mimikatz does)
 
 
 Private Declare PtrSafe Function LsaConnectUntrusted Lib "SECUR32" (ByRef LsaHandle As LongPtr) As Long
