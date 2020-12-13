@@ -47,8 +47,6 @@ Sub LDAPSprayer() 'https://www.remkoweijnen.nl/blog/2007/11/01/query-active-dire
         prefix = CreateObject("WScript.Network").UserDomain
         c = 1
         Do While Not objRecordSet.EOF
-            
-           
             For i = 0 To objRecordSet.Fields.Count - 1
                 Cells(c, 1) = prefix & "\" & toStr(objRecordSet!sAMAccountName)
                 If (objRecordSet!pwdLastSet.Value.HighPart = 0) And (objRecordSet!pwdLastSet.Value.LowPart = 0) Then
