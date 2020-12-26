@@ -9,3 +9,4 @@ If you are interested about this topic, please read our articles "[Hacking in an
 | chrome-export-masterkey.vba | Export the master key used to encrypt the passwords in Chrome (version 80+) |
 | kerberoast.vba | Kerberoast implementation |
 | LDAP-pwdLastSet-Sprayer.vba | LDAP password sprayer (using pwdLastSet) |
+| Keylogger-NtUserGetRawInputData.vba | Keylogger PoC using NtUserGetRawInputData | 
