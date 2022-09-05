@@ -10,3 +10,4 @@ If you are interested about this topic, please read our articles "[Hacking in an
 | kerberoast.vba | Kerberoast implementation |
 | LDAP-pwdLastSet-Sprayer.vba | LDAP password sprayer (using pwdLastSet) |
 | Keylogger-NtUserGetRawInputData.vba | Keylogger PoC using NtUserGetRawInputData | 
+| FreshyCalls.vba | Resolve dynamically SSNs for syscalling (x64) |
